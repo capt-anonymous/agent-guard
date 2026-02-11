@@ -1,4 +1,30 @@
-        tailwind.config = {
+function updateISTTime() {
+  const clock = document.getElementById("ist-clock");
+  if (!clock) return;
+
+  const now = new Date();
+
+  const options = {
+    timeZone: "Asia/Kolkata",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  };
+
+  const istTime = new Intl.DateTimeFormat("en-IN", options).format(now);
+
+  clock.textContent = `${istTime} IST`;
+}
+
+// Run immediately
+updateISTTime();
+
+// Update every second
+setInterval(updateISTTime, 1000);
+
+
+       tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
