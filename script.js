@@ -1,4 +1,3 @@
-<script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -37,4 +36,4 @@
                 },
             },
         }
-    </script>
+   
