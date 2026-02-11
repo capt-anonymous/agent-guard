@@ -20,13 +20,13 @@
 <header class="flex justify-between items-center glass-panel p-4 rounded-lg border-l-4 border-l-primary crimson-glow">
 <div class="flex items-center gap-4">
 <div class="h-10 w-10 bg-primary/20 rounded flex items-center justify-center border border-primary animate-pulse-fast">
-<span class="material-icons text-primary">security</span>
+<span class="material-symbols-outlined text-primary text-glow text-[25px]" id="28days-later">smart_toy</span>
 </div>
 <div>
 <h1 class="text-xl md:text-2xl font-bold tracking-widest uppercase text-white">Agent-Guard <span class="text-primary text-glow">Ultra</span></h1>
 <div class="flex items-center gap-2 text-xs text-gray-400">
 <span class="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-<span>SYSTEM: ONLINE // DEFCON 4</span>
+<span>SYSTEM: ONLINE </span>
 </div>
 </div>
 </div>
@@ -35,9 +35,12 @@
 <span class="text-xs text-primary font-bold tracking-widest">CRIMSON GHOST SOC</span>
 <span class="text-xs text-gray-500 font-mono">ID: X-99-ALPHA-Z</span>
 </div>
-<div class="font-mono text-xl text-primary text-glow border border-primary/30 px-3 py-1 rounded bg-black/40">
-                    23:42:09 UTC
-                </div>
+<div
+  id="ist-clock"
+  class="font-mono text-xl text-primary text-glow border border-primary/30 px-3 py-1 rounded bg-black/40">
+  --:--:-- IST
+</div>
+
 </div>
 </header>
 <!-- Visual Scrubber (Pipeline) -->
@@ -48,20 +51,20 @@
 <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-800 -z-10"></div>
 <!-- Stage 1 -->
 <div class="flex flex-col items-center gap-2 group cursor-pointer">
-<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center border-4 border-black crimson-border-glow shadow-[0_0_20px_rgba(233,28,28,0.5)] z-10">
-<span class="material-icons text-white text-sm">input</span>
+<div class="w-10 h-10 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center z-10 hover:border-primary transition-colors">
+<span class="material-icons text-gray-500 text-sm group-hover:text-primary">input</span>
 </div>
-<span class="text-xs font-bold uppercase tracking-wider text-primary">Input</span>
-<span class="text-[10px] text-gray-500 font-mono">STREAM ACTIVE</span>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-500 group-hover:text-white transition-colors">Input</span>
+
 </div>
+
 <!-- Stage 2 -->
 <div class="flex flex-col items-center gap-2 group cursor-pointer">
-<div class="w-10 h-10 rounded-full bg-surface-dark border-2 border-primary flex items-center justify-center z-10 relative">
-<div class="absolute inset-0 bg-primary/20 animate-ping rounded-full opacity-20"></div>
-<span class="material-icons text-primary text-sm">psychology</span>
+<div class="w-10 h-10 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center z-10 hover:border-primary transition-colors">
+<span class="material-icons text-gray-500 text-sm group-hover:text-primary">psychology</span>
 </div>
-<span class="text-xs font-bold uppercase tracking-wider text-gray-300 group-hover:text-primary transition-colors">Analysis</span>
-<span class="text-[10px] text-gray-600 font-mono">PROCESSING</span>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-500 group-hover:text-white transition-colors">Analysis</span>
+
 </div>
 <!-- Stage 3 -->
 <div class="flex flex-col items-center gap-2 group cursor-pointer">
