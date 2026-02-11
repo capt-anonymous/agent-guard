@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Agent-Guard Ultra - The Sentinel of Agentic Governance</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
+    <!-- Main Script -->
+    <script src="script.js" type="module"></script>
+</head>
+
+<body
+    class="bg-obsidian text-white font-sans min-h-screen flex flex-col selection:bg-crimson selection:text-white overflow-y-auto overflow-x-hidden">
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="digital-rain"></div>
+    </div>
+    <header
+        class="h-20 border-b border-border-subtle bg-obsidian/90 backdrop-blur-sm fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-8 h-8 bg-crimson flex items-center justify-center text-white">
+                    <span class="material-icons text-lg">security</span>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-widest uppercase text-white">AGENT-GUARD <span
+                            class="text-crimson">ULTRA</span></h1>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-gray-400">
+                <a class="hover:text-crimson transition-colors" href="#">Features</a>
+                <a class="hover:text-crimson transition-colors" href="#">Specs</a>
+                <a class="hover:text-crimson transition-colors" href="#">Compliance</a>
+            </nav>
+            <a class="hidden md:flex items-center gap-2 px-5 py-2 border border-border-subtle hover:border-crimson text-xs font-bold uppercase transition-colors group"
+                href="../login/index.html">
+                Log In
+                <span class="material-icons text-sm group-hover:text-crimson transition-colors">arrow_forward</span>
+            </a>
+        </div>
+    </header>
+    <main class="flex-1 mt-20 relative z-10">
+        <section
+            class="relative min-h-[90vh] flex items-center bg-obsidian border-b border-border-subtle overflow-hidden">
+            <div class="absolute inset-0 grid-bg opacity-30 pointer-events-none"></div>
+
+            <div
+                class="max-w-7xl mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column: Text -->
+                <div class="animate-fade-in-up">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 border border-border-subtle bg-charcoal/50 text-[10px] font-mono uppercase tracking-wider mb-8 text-crimson">
+                        <span class="w-1.5 h-1.5 bg-crimson rounded-full animate-pulse"></span>
+                        System Nominal
+                    </div>
+                    <h1
+                        class="text-4xl md:text-6xl font-bold tracking-widest uppercase mb-6 leading-tight font-display text-white">
+                        The Sentinel of <br />
+                        <span class="text-crimson">Agentic Governance</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 font-light mb-10 max-w-xl leading-relaxed">
+                        Secure your AI infrastructure with military-grade monitoring, adversarial resistance, and
+                        real-time semantic enforcement.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a class="px-8 py-4 bg-crimson hover:bg-crimson-dark text-white font-bold uppercase tracking-wider text-sm transition-all flex items-center justify-center gap-3"
+                            href="../login/index.html">
+                            Enter Dashboard
+                            <span class="material-icons text-sm">dashboard</span>
+                        </a>
+                        <a class="px-8 py-4 bg-transparent border border-gray-700 hover:border-crimson hover:text-crimson text-white font-bold uppercase tracking-wider text-sm transition-all flex items-center justify-center"
+                            href="../login/index.html">
+                            Request Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Earth -->
+                <div class="relative w-full h-[600px] flex items-center justify-center" id="earth-container">
+                    <!-- The 3D Earth will be mounted here by main.js -->
+                </div>
+            </div>
+
+        </section>
+        <section class="py-24 bg-obsidian relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16">
+                    <h2 class="text-3xl font-light uppercase tracking-widest mb-4 animate-fade-in-up opacity-0"
+                        style="animation-fill-mode: forwards;">Core Capabilities</h2>
+                    <div class="w-24 h-1 bg-crimson animate-pulse"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="group border border-border-subtle hover:border-crimson bg-charcoal/20 p-8 transition-colors duration-300 flex flex-col h-full animate-fade-in-up stagger-1 opacity-0"
+                        style="animation-fill-mode: forwards;">
+                        <div
+                            class="mb-6 w-12 h-12 bg-gray-900 border border-border-subtle flex items-center justify-center group-hover:bg-crimson group-hover:text-white transition-colors">
+                            <span class="material-icons">lock</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Quantum Vault</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300">
+                            Post-quantum cryptographic layers ensuring your model weights and agency protocols remain
+                            tamper-proof.
+                        </p>
+                    </div>
+                    <div class="group border border-border-subtle hover:border-crimson bg-charcoal/20 p-8 transition-colors duration-300 flex flex-col h-full animate-fade-in-up stagger-1 opacity-0"
+                        style="animation-fill-mode: forwards;">
+                        <div
+                            class="mb-6 w-12 h-12 bg-gray-900 border border-border-subtle flex items-center justify-center group-hover:bg-crimson group-hover:text-white transition-colors">
+                            <span class="material-icons">visibility</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Semantic Panopticon</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300">
+                            Real-time semantic interception of agent outputs. We catch hallucinations and prompt
+                            injections before they execute.
+                        </p>
+                    </div>
+                    <div class="group border border-border-subtle hover:border-crimson bg-charcoal/20 p-8 transition-colors duration-300 flex flex-col h-full animate-fade-in-up stagger-1 opacity-0"
+                        style="animation-fill-mode: forwards;">
+                        <div
+                            class="mb-6 w-12 h-12 bg-gray-900 border border-border-subtle flex items-center justify-center group-hover:bg-crimson group-hover:text-white transition-colors">
+                            <span class="material-icons">gavel</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Policy Engine</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300">
+                            Define rigid boundaries for autonomous agents. Enforce compliance with GDPR, NIST AI RMF,
+                            and internal safety protocols.
+                        </p>
+                    </div>
+                    <div class="group border border-border-subtle hover:border-crimson bg-charcoal/20 p-8 transition-colors duration-300 flex flex-col h-full animate-fade-in-up stagger-1 opacity-0"
+                        style="animation-fill-mode: forwards;">
+                        <div
+                            class="mb-6 w-12 h-12 bg-gray-900 border border-border-subtle flex items-center justify-center group-hover:bg-crimson group-hover:text-white transition-colors">
+                            <span class="material-icons">history</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Forensic Black Box</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300">
+                            Immutable logging of every agent decision train. Replay incidents with high-fidelity state
+                            reconstruction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Decorative Background Element -->
+            <div class="absolute top-1/2 right-0 -translate-y-1/2 w-1/3 h-full opacity-5 pointer-events-none">
+                <div class="w-full h-full border-l border-crimson/20"></div>
+            </div>
+        </section>
+
+        <!-- Specifications / Terminal Section -->
+        <section class="py-24 bg-deep-maroon border-t border-border-subtle relative overflow-hidden">
+            <div class="absolute inset-0 bg-obsidian opacity-90"></div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl font-light uppercase tracking-widest mb-8">Technical Specifications</h2>
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-crimson pl-6 py-1">
+                                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Latency Overhead
+                                </h4>
+                                <p class="text-xs font-mono text-gray-400">&lt; 15ms per inference call</p>
+                            </div>
+                            <div
+                                class="border-l-2 border-border-subtle pl-6 py-1 hover:border-crimson transition-colors">
+                                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Deployment Models
+                                </h4>
+                                <p class="text-xs font-mono text-gray-400">On-Prem Airgapped, VPC, Edge Hybrid</p>
+                            </div>
+                            <div
+                                class="border-l-2 border-border-subtle pl-6 py-1 hover:border-crimson transition-colors">
+                                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Compatible LLMs
+                                </h4>
+                                <p class="text-xs font-mono text-gray-400">GPT-4, Claude 3, Llama 3, Mistral Large</p>
+                            </div>
+                            <div
+                                class="border-l-2 border-border-subtle pl-6 py-1 hover:border-crimson transition-colors">
+                                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Encryption
+                                    Standard</h4>
+                                <p class="text-xs font-mono text-gray-400">AES-256-GCM + PQ-CRYPTO Headers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-black/80 border border-gray-800 rounded-sm p-6 font-mono text-xs relative shadow-2xl">
+                        <div class="flex items-center justify-between mb-4 border-b border-gray-800 pb-2">
+                            <span class="text-gray-500">terminal@alert-guard:~$</span>
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-900"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-900"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-900"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-gray-300">
+                            <p>> init_sentinel_protocol --v 2.4.0</p>
+                            <p class="text-green-500">[SUCCESS] Core systems online</p>
+                            <p>> scanning input_stream...</p>
+                            <p class="text-crimson">[ALERT] Prompt injection detected in Thread #4491</p>
+                            <p>> neutralizing threat...</p>
+                            <p class="text-green-500">[SUCCESS] Vector quarantined. Agent stability maintained.</p>
+                            <p>> <span class="animate-pulse">_</span></p>
+                        </div>
+                        <!-- Scanline effect -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent h-1 w-full animate-scan pointer-events-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section
+            class="py-32 flex flex-col items-center justify-center text-center bg-obsidian relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-crimson/5 pointer-events-none"></div>
+            <div class="relative z-10 max-w-2xl px-6 animate-fade-in-up stagger-1 opacity-0"
+                style="animation-fill-mode: forwards;">
+                <span class="material-icons text-5xl text-crimson mb-6 animate-pulse">security_update_good</span>
+                <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-widest mb-6 text-white">Secure the Future
+                    of
+                    Intelligence</h2>
+                <p class="text-gray-400 mb-10 text-lg">Deploy Agent-Guard Ultra in minutes. Gain total visibility and
+                    control over your AI agents.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a class="px-10 py-4 bg-white text-black font-bold uppercase tracking-wider text-sm hover:bg-gray-200 transition-colors"
+                        href="../login/index.html">
+                        Request Demo
+                    </a>
+                    <a class="px-10 py-4 bg-transparent border border-crimson text-crimson font-bold uppercase tracking-wider text-sm hover:bg-crimson hover:text-white transition-colors"
+                        href="../login/index.html">
+                        Enter Dashboard
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="border-t border-border-subtle bg-obsidian pt-16 pb-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-6 h-6 bg-crimson flex items-center justify-center text-white">
+                            <span class="material-icons text-xs">security</span>
+                        </div>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-white">AGENT-GUARD</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 leading-relaxed font-mono">
+                        Defining the standard for AI governance and security in the agentic age.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-6">Product</h4>
+                    <ul class="space-y-4 text-xs text-gray-400 font-mono">
+                        <li><a class="hover:text-crimson transition-colors" href="#">Features</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">Integrations</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">Enterprise</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-6">Resources</h4>
+                    <ul class="space-y-4 text-xs text-gray-400 font-mono">
+                        <li><a class="hover:text-crimson transition-colors" href="#">Documentation</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">API Reference</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">Community</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-6">Legal</h4>
+                    <ul class="space-y-4 text-xs text-gray-400 font-mono">
+                        <li><a class="hover:text-crimson transition-colors" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">Terms of Service</a></li>
+                        <li><a class="hover:text-crimson transition-colors" href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-border-subtle pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-xs text-gray-600 font-mono mb-4 md:mb-0">
+                    © 2026 Agent-Guard Ultra Inc. All rights reserved.
+                </p>
+                <div class="flex gap-4">
+                    <a class="text-gray-600 hover:text-white transition-colors" href="#"><span
+                            class="material-icons text-sm">alternate_email</span></a>
+                    <a class="text-gray-600 hover:text-white transition-colors" href="#"><span
+                            class="material-icons text-sm">rss_feed</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

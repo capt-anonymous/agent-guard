@@ -5,7 +5,7 @@ export async function init(containerId = 'earth-container') {
   const canvas = document.createElement('canvas');
   canvas.id = 'planet-canvas';
 
-  const container = document.getElementById(containerId) || document.body;
+  const container = (typeof containerId === 'string' ? document.getElementById(containerId) : containerId) || document.body;
   container.appendChild(canvas);
 
   // Use container dimensions if available, else window

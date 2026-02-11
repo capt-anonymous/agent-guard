@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Agent-Guard Ultra | Crimson Ghost Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body class="bg-background-dark text-white font-display selection:bg-primary/40">
+    <!-- Environmental Elements -->
+    <div class="crt-overlay"></div>
+    <div class="crimson-pulse"></div>
+    <!-- Main Content -->
+    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center p-6">
+        <!-- Header Info -->
+        <div class="mb-12 text-center">
+
+        </div>
+        <!-- Login Container -->
+        <div class="glass-container w-full max-w-md rounded-xl p-8 relative overflow-hidden">
+            <!-- Corner Accents -->
+            <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/40"></div>
+            <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40"></div>
+            <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40"></div>
+            <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/40"></div>
+            <!-- Logo Section -->
+            <div class="flex flex-col items-center mb-10">
+                <div class="relative w-24 h-24 mb-6">
+                    <!-- Crimson Ghost Logo (Abstract Sigil) -->
+                    <div class="absolute inset-0 bg-primary/10 rounded-full blur-2xl"></div>
+                    <div
+                        class="relative w-full h-full flex items-center justify-center border-2 border-primary rounded-lg rotate-45">
+                        <div class="w-12 h-12 border-4 border-primary/80 -rotate-45 flex items-center justify-center">
+                            <span
+                                class="material-icons text-primary text-4xl transform scale-125 text-[25px]">smart_toy</span>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-bold tracking-tighter text-white uppercase glitch-text">Agent Guard</h1>
+                <p class="text-xs tracking-[0.2em] text-zinc-400 mt-2 uppercase">Agent-Guard Ultra Interface</p>
+            </div>
+            <!-- Login Form -->
+            <form class="space-y-6" onsubmit="return false;">
+                <div class="space-y-1.5">
+                    <label class="text-[10px] uppercase tracking-widest text-primary font-bold ml-1">Operator
+                        Identifier</label>
+                    <div class="relative">
+                        <span
+                            class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 text-sm">alternate_email</span>
+                        <input
+                            class="w-full bg-black/40 border border-zinc-800 rounded-lg py-3.5 pl-11 pr-4 text-sm tracking-wide text-zinc-100 placeholder:text-zinc-700 transition-all input-glow focus:border-primary/50"
+                            placeholder="USER@GOVERNANCE.ULTRA" type="email" />
+                    </div>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] uppercase tracking-widest text-primary font-bold ml-1">Access
+                        Cipher</label>
+                    <div class="relative">
+                        <span
+                            class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 text-sm">vpn_key</span>
+                        <input
+                            class="w-full bg-black/40 border border-zinc-800 rounded-lg py-3.5 pl-11 pr-4 text-sm tracking-wide text-zinc-100 placeholder:text-zinc-700 transition-all input-glow focus:border-primary/50"
+                            placeholder="••••••••••••" type="password" />
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <button
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg tracking-[0.25em] uppercase text-sm shadow-[0_0_20px_rgba(233,28,28,0.3)] transition-all flex items-center justify-center group">
+                        <span>Initiate Session</span>
+                        <span
+                            class="material-icons ml-2 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+            </form>
+            <!-- Biometric Verification Bar -->
+            <div class="mt-10 space-y-3">
+                <div class="flex justify-between items-center px-1">
+                    <span class="text-[9px] uppercase tracking-widest text-zinc-500 font-bold">Secure Biometric
+                        Status</span>
+                    <span class="text-[9px] uppercase tracking-widest text-primary font-bold">Awaiting Scan...</span>
+                </div>
+                <div class="h-1.5 w-full bg-zinc-900 rounded-full overflow-hidden border border-zinc-800/50">
+                    <div class="h-full bg-primary status-bar-fill relative">
+                        <div class="absolute right-0 top-0 bottom-0 w-1 bg-white/50 blur-[2px]"></div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center text-[8px] text-zinc-600 uppercase tracking-tighter">
+                    <span>Protocol: 88.0.2</span>
+                    <span>AI-Gov Status: Active</span>
+                    <span>Threat: Low</span>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Terminal Text -->
+        <footer class="mt-12 w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-8 px-6 opacity-60">
+            <div class="border-l border-zinc-800 pl-4 space-y-1">
+                <p class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase">Encryption Layer</p>
+                <p class="text-[10px] text-primary/80 font-mono">AES-512 QUANTUM-RESISTANT</p>
+            </div>
+            <div class="border-l border-zinc-800 pl-4 space-y-1">
+                <p class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase">Traffic Integrity</p>
+                <p class="text-[10px] text-primary/80 font-mono">NODE: FRA-ULTRA-01 // ACTIVE</p>
+            </div>
+            <div class="border-l border-zinc-800 pl-4 space-y-1">
+                <p class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase">Agent Metadata</p>
+                <p class="text-[10px] text-primary/80 font-mono">CLEARANCE: LEVEL 5 (CRIMSON)</p>
+            </div>
+        </footer>
+        <!-- Image Content (Map Background Subtle) -->
+        <div class="fixed inset-0 pointer-events-none opacity-[0.03] z-0">
+            <img class="w-full h-full object-cover" data-alt="Digital dark world map with data points"
+                data-location="Global SOC"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbJZGQfE_4sKITlVrwOoS1khQIxpIeK_XpV2qh8CqlqSM3vmoPjC2reGn1P2g6GY4amrrKwvTejct6JWsk7gp8KLwzzCOjbWn6gPfS9z0tCq24s9tQAGuTJQrxAhGQMb_kdn8AmcBCtN354Wv42yC0WcLx4YnspwpFs8IcbACiBcHhl814xvG4YR6Qea5lIlQQ3VmuI5e34AnRxbQT2jmPCPfa_dPI8Z5a95U-5RygnFE5SWZQF-BdLBoAdHUuLlmuU2VQ4V9NmaNU" />
+        </div>
+    </main>
+    <!-- Additional Decorative Elements -->
+    <div class="fixed top-12 left-12 z-20">
+        <div class="flex flex-col space-y-2">
+            <div class="w-12 h-[1px] bg-primary/40"></div>
+            <div class="w-8 h-[1px] bg-primary/20"></div>
+            <div class="w-4 h-[1px] bg-primary/10"></div>
+        </div>
+    </div>
+    <div class="fixed bottom-12 right-12 z-20 text-right">
+        <div class="text-[10px] text-zinc-800 font-mono leading-none tracking-tighter">
+            01001111 01010101 01010100<br />
+            01000001 01000111 01000101<br />
+            01010101 01001110 01010100
+        </div>
+    </div>
+</body>
+
+</html>
