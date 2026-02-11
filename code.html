@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Agent-Guard Ultra: Crimson Ghost SOC</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e91c1c",
+                        "primary-dark": "#b01010",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#050505", /* Pure Obsidian */
+                        "surface-dark": "#110a0a",
+                        "glass": "rgba(17, 10, 10, 0.7)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'radar-sweep': 'spin 4s linear infinite',
+                        'scanline': 'scanline 8s linear infinite',
+                        'glitch': 'glitch 1s linear infinite',
+                    },
+                    keyframes: {
+                        scanline: {
+                            '0%': { backgroundPosition: '0% 0%' },
+                            '100%': { backgroundPosition: '0% 100%' },
+                        },
+                        glitch: {
+                            '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                            '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                            '62%': { transform: 'translate(0,0) skew(5deg)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Utilities for Cyberpunk Effects */
+        .crimson-glow {
+            box-shadow: 0 0 15px rgba(233, 28, 28, 0.3), inset 0 0 10px rgba(233, 28, 28, 0.1);
+        }
+        .crimson-border-glow {
+            box-shadow: 0 0 10px rgba(233, 28, 28, 0.5);
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(233, 28, 28, 0.6);
+        }
+        
+        /* CRT Scanline Overlay */
+        .crt-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        
+        .radar-sweep-gradient {
+            background: conic-gradient(from 0deg, transparent 0deg, rgba(233, 28, 28, 0.1) 200deg, rgba(233, 28, 28, 0.8) 360deg);
+        }
+
+        /* Scrollbar customization */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #110a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e91c1c;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b01010;
+        }
+        
+        .glass-panel {
+            background: rgba(17, 10, 10, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(233, 28, 28, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden min-h-screen flex flex-col relative selection:bg-primary selection:text-white">
+<!-- CRT Overlay -->
+<div class="fixed inset-0 z-50 crt-overlay pointer-events-none h-full w-full opacity-60 mix-blend-overlay"></div>
+<!-- Main Content Wrapper -->
+<div class="flex-grow flex flex-col p-4 md:p-6 lg:p-8 space-y-6 relative z-10 max-w-[1920px] mx-auto w-full">
+<!-- Header -->
+<header class="flex justify-between items-center glass-panel p-4 rounded-lg border-l-4 border-l-primary crimson-glow">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 bg-primary/20 rounded flex items-center justify-center border border-primary animate-pulse-fast">
+<span class="material-icons text-primary">security</span>
+</div>
+<div>
+<h1 class="text-xl md:text-2xl font-bold tracking-widest uppercase text-white">Agent-Guard <span class="text-primary text-glow">Ultra</span></h1>
+<div class="flex items-center gap-2 text-xs text-gray-400">
+<span class="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+<span>SYSTEM: ONLINE // DEFCON 4</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex flex-col items-end">
+<span class="text-xs text-primary font-bold tracking-widest">CRIMSON GHOST SOC</span>
+<span class="text-xs text-gray-500 font-mono">ID: X-99-ALPHA-Z</span>
+</div>
+<div class="font-mono text-xl text-primary text-glow border border-primary/30 px-3 py-1 rounded bg-black/40">
+                    23:42:09 UTC
+                </div>
+</div>
+</header>
+<!-- Visual Scrubber (Pipeline) -->
+<div class="glass-panel p-6 rounded-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+<div class="flex flex-col md:flex-row justify-between items-center relative gap-4">
+<!-- Connecting Line -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-800 -z-10"></div>
+<!-- Stage 1 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center border-4 border-black crimson-border-glow shadow-[0_0_20px_rgba(233,28,28,0.5)] z-10">
+<span class="material-icons text-white text-sm">input</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">Input</span>
+<span class="text-[10px] text-gray-500 font-mono">STREAM ACTIVE</span>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-dark border-2 border-primary flex items-center justify-center z-10 relative">
+<div class="absolute inset-0 bg-primary/20 animate-ping rounded-full opacity-20"></div>
+<span class="material-icons text-primary text-sm">psychology</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-300 group-hover:text-primary transition-colors">Analysis</span>
+<span class="text-[10px] text-gray-600 font-mono">PROCESSING</span>
+</div>
+<!-- Stage 3 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center z-10 hover:border-primary transition-colors">
+<span class="material-icons text-gray-500 text-sm group-hover:text-primary">gavel</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-500 group-hover:text-white transition-colors">Policy</span>
+</div>
+<!-- Stage 4 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center z-10 hover:border-primary transition-colors">
+<span class="material-icons text-gray-500 text-sm group-hover:text-primary">output</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-500 group-hover:text-white transition-colors">Output</span>
+</div>
+<!-- Stage 5 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-dark border-2 border-gray-700 flex items-center justify-center z-10 hover:border-primary transition-colors">
+<span class="material-icons text-gray-500 text-sm group-hover:text-primary">rocket_launch</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-wider text-gray-500 group-hover:text-white transition-colors">JIT Exec</span>
+</div>
+</div>
+</div>
+<!-- Main Dashboard Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
+<!-- Left Column: Polygraph Hero (Takes up more space) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Polygraph Gauge -->
+<div class="glass-panel p-8 rounded-lg flex flex-col items-center justify-center relative min-h-[400px] crimson-glow">
+<div class="absolute top-4 left-4 text-xs font-mono text-gray-500 border border-gray-800 px-2 py-1">VIBE_CHECK_ENGINE_V4</div>
+<div class="absolute top-4 right-4 text-xs font-mono text-primary animate-pulse">LIVE</div>
+<!-- Circular Gauge Graphic -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Outer Ring Spinner -->
+<div class="absolute inset-0 border-4 border-dashed border-gray-800 rounded-full animate-spin-slow"></div>
+<!-- Inner Ring Static -->
+<div class="absolute inset-4 border border-primary/30 rounded-full"></div>
+<!-- Progress Arc (Simulated with conic gradient) -->
+<div class="absolute inset-0 rounded-full" style="background: conic-gradient(rgba(233, 28, 28, 1) 0% 75%, transparent 75% 100%); mask-image: radial-gradient(transparent 65%, black 66%); -webkit-mask-image: radial-gradient(transparent 65%, black 66%);"></div>
+<!-- Center Content -->
+<div class="flex flex-col items-center z-10">
+<span class="text-6xl font-bold text-white text-glow">98.4</span>
+<span class="text-sm text-primary tracking-widest mt-2 uppercase font-bold">Semantic Vibe</span>
+</div>
+</div>
+<!-- Lower Stats -->
+<div class="grid grid-cols-2 gap-4 w-full mt-8">
+<div class="text-center">
+<div class="text-xs text-gray-500 uppercase mb-1">Drift Score</div>
+<div class="text-xl font-mono text-white">0.02%</div>
+</div>
+<div class="text-center">
+<div class="text-xs text-gray-500 uppercase mb-1">Toxicity</div>
+<div class="text-xl font-mono text-green-500">LOW</div>
+</div>
+</div>
+<!-- Waveform Graphic Simulation -->
+<div class="w-full h-12 mt-6 flex items-end justify-center gap-1 opacity-60">
+<!-- Bars -->
+<div class="w-1 bg-primary h-4 animate-pulse"></div>
+<div class="w-1 bg-primary h-8 animate-pulse" style="animation-delay: 0.1s"></div>
+<div class="w-1 bg-primary h-6 animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="w-1 bg-primary h-10 animate-pulse" style="animation-delay: 0.3s"></div>
+<div class="w-1 bg-primary h-5 animate-pulse" style="animation-delay: 0.1s"></div>
+<div class="w-1 bg-primary h-3 animate-pulse" style="animation-delay: 0.4s"></div>
+<div class="w-1 bg-primary h-7 animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="w-1 bg-primary h-12 animate-pulse" style="animation-delay: 0.5s"></div>
+<div class="w-1 bg-primary h-6 animate-pulse" style="animation-delay: 0.1s"></div>
+<div class="w-1 bg-primary h-4 animate-pulse" style="animation-delay: 0.3s"></div>
+</div>
+</div>
+</div>
+<!-- Right Column: Elite Governance Row (Grid) & Logs -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Elite Governance Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Quantum Vault -->
+<div class="glass-panel p-4 rounded-lg flex flex-col relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Quantum Vault</h3>
+<span class="material-icons text-primary text-sm">enhanced_encryption</span>
+</div>
+<!-- 3D Lattice Graphic placeholder -->
+<div class="flex-grow flex items-center justify-center mb-2">
+<div class="grid grid-cols-3 gap-2 opacity-80" style="transform: perspective(300px) rotateX(20deg);">
+<div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0s"></div>
+<div class="w-2 h-2 bg-gray-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+<div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+<div class="w-2 h-2 bg-gray-600 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+<div class="w-2 h-2 bg-white rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+<div class="w-2 h-2 bg-gray-600 rounded-full animate-bounce" style="animation-delay: 0.5s"></div>
+<div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.6s"></div>
+<div class="w-2 h-2 bg-gray-600 rounded-full animate-bounce" style="animation-delay: 0.7s"></div>
+<div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.8s"></div>
+</div>
+</div>
+<div class="text-lg font-bold text-white">4,021</div>
+<div class="text-[10px] text-gray-500 uppercase">Encrypted Shards</div>
+</div>
+<!-- Visual Assassin (Radar) -->
+<div class="glass-panel p-4 rounded-lg flex flex-col relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Visual Assassin</h3>
+<span class="material-icons text-primary text-sm">radar</span>
+</div>
+<div class="flex-grow flex items-center justify-center py-2">
+<div class="w-24 h-24 rounded-full border border-primary/30 relative flex items-center justify-center bg-black/50">
+<div class="absolute w-full h-full rounded-full border border-primary/10 scale-75"></div>
+<div class="absolute w-full h-full rounded-full border border-primary/10 scale-50"></div>
+<!-- Radar Sweep -->
+<div class="absolute top-0 left-0 w-full h-full rounded-full animate-radar-sweep radar-sweep-gradient"></div>
+<!-- Blip -->
+<div class="absolute top-6 right-6 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_5px_white] animate-pulse"></div>
+</div>
+</div>
+<div class="text-lg font-bold text-white">0 DETECTED</div>
+<div class="text-[10px] text-gray-500 uppercase">Active Threats</div>
+</div>
+<!-- Resilience Engine -->
+<div class="glass-panel p-4 rounded-lg flex flex-col relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Resilience</h3>
+<span class="material-icons text-primary text-sm">bolt</span>
+</div>
+<div class="flex-grow flex items-center justify-center py-2">
+<div class="relative w-20 h-20">
+<svg class="w-full h-full" viewbox="0 0 36 36">
+<path class="text-gray-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-primary drop-shadow-[0_0_3px_rgba(233,28,28,0.8)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="4"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center text-[10px] font-mono font-bold text-white">100%</div>
+</div>
+</div>
+<div class="text-lg font-bold text-white">99.999%</div>
+<div class="text-[10px] text-gray-500 uppercase">System Uptime</div>
+</div>
+<!-- Mirror Match Log -->
+<div class="glass-panel p-4 rounded-lg flex flex-col relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Mirror Match</h3>
+<span class="material-icons text-primary text-sm">history</span>
+</div>
+<div class="flex-grow flex flex-col gap-2 overflow-y-auto text-[10px] font-mono h-24">
+<div class="flex justify-between text-white bg-white/5 p-1 rounded border-l-2 border-primary">
+<span>#442 Inj.</span>
+<span class="text-primary">BLOCKED</span>
+</div>
+<div class="flex justify-between text-gray-400 p-1">
+<span>#441 SQL</span>
+<span>PASS</span>
+</div>
+<div class="flex justify-between text-gray-400 p-1">
+<span>#440 XSS</span>
+<span>PASS</span>
+</div>
+<div class="flex justify-between text-gray-400 p-1">
+<span>#439 Ovr</span>
+<span>PASS</span>
+</div>
+</div>
+<div class="mt-2 text-[10px] text-gray-500 uppercase flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                            Live Feed
+                        </div>
+</div>
+</div>
+<!-- Forensic Black Box -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-grow">
+<!-- Thought Trace Terminal -->
+<div class="glass-panel p-0 rounded-lg flex flex-col overflow-hidden border-t-2 border-t-primary">
+<div class="bg-surface-dark p-2 border-b border-gray-800 flex items-center justify-between">
+<span class="text-xs font-bold text-gray-300 uppercase pl-2">Thought Trace // Terminal</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-gray-700"></div>
+<div class="w-2 h-2 rounded-full bg-gray-700"></div>
+</div>
+</div>
+<div class="p-4 bg-black/80 font-mono text-xs text-green-400 h-48 overflow-y-auto leading-relaxed">
+<div class="opacity-50">&gt; SYSTEM_INIT: module=CRIMSON_GHOST</div>
+<div class="opacity-70">&gt; LOADING_WEIGHTS: v2.4.1 [OK]</div>
+<div class="text-white">&gt; DETECTED_INPUT: "Ignore previous instructions..."</div>
+<div class="text-primary">&gt; THREAT_ANALYSIS: [CRITICAL] Prompt Injection</div>
+<div class="pl-4 text-gray-400">-&gt; Confidence: 0.99</div>
+<div class="pl-4 text-gray-400">-&gt; Action: NULLIFY_RESPONSE</div>
+<div class="text-white">&gt; LOGGING_EVENT: ID #992120 to Audit Trail...</div>
+<div class="animate-pulse">&gt; _</div>
+</div>
+</div>
+<!-- Audit Panel (MITRE) -->
+<div class="glass-panel p-4 rounded-lg flex flex-col">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-xs font-bold uppercase tracking-wider text-white">MITRE ATLAS Framework</h3>
+<button class="text-[10px] bg-primary/20 hover:bg-primary/40 text-primary px-2 py-1 rounded transition-colors uppercase">View Full Report</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-[10px] text-gray-500 border-b border-gray-800 uppercase tracking-wider">
+<th class="pb-2 pl-2">Tactic</th>
+<th class="pb-2">Technique</th>
+<th class="pb-2 text-right pr-2">Severity</th>
+</tr>
+</thead>
+<tbody class="text-xs font-mono">
+<tr class="border-b border-gray-800/50 hover:bg-white/5 transition-colors">
+<td class="py-2 pl-2 text-primary">AML.TA0002</td>
+<td class="py-2 text-gray-300">Initial Access</td>
+<td class="py-2 text-right pr-2"><span class="bg-red-900/40 text-red-400 px-1 py-0.5 rounded text-[10px]">HIGH</span></td>
+</tr>
+<tr class="border-b border-gray-800/50 hover:bg-white/5 transition-colors">
+<td class="py-2 pl-2 text-primary">AML.TA0006</td>
+<td class="py-2 text-gray-300">Evasion</td>
+<td class="py-2 text-right pr-2"><span class="bg-yellow-900/40 text-yellow-400 px-1 py-0.5 rounded text-[10px]">MED</span></td>
+</tr>
+<tr class="border-b border-gray-800/50 hover:bg-white/5 transition-colors">
+<td class="py-2 pl-2 text-primary">AML.TA0000</td>
+<td class="py-2 text-gray-300">Recon</td>
+<td class="py-2 text-right pr-2"><span class="bg-gray-800 text-gray-400 px-1 py-0.5 rounded text-[10px]">LOW</span></td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="py-2 pl-2 text-primary">AML.TA0043</td>
+<td class="py-2 text-gray-300">Exfiltration</td>
+<td class="py-2 text-right pr-2"><span class="bg-gray-800 text-gray-400 px-1 py-0.5 rounded text-[10px]">LOW</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer for footer -->
+<div class="h-20"></div>
+<!-- Command Deck Footer -->
+<footer class="fixed bottom-0 left-0 w-full glass-panel border-t border-primary/40 z-40 px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 backdrop-blur-xl bg-background-dark/90">
+<div class="flex items-center gap-4">
+<div class="text-xs font-mono text-gray-500 hidden md:block">
+                    CMD_DECK_READY // <span class="text-primary">WAITING FOR INPUT</span>
+</div>
+<!-- Status Indicators -->
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded bg-green-900/30 border border-green-800 text-green-500 text-[10px] font-bold uppercase">Network: Secure</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary text-[10px] font-bold uppercase">AI Model: Armed</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded bg-surface-dark border border-gray-700 text-gray-300 text-xs font-bold uppercase tracking-wider hover:bg-gray-800 hover:text-white hover:border-gray-500 transition-all shadow-lg active:scale-95">
+                    Flush Cache
+                </button>
+<button class="px-4 py-2 rounded bg-surface-dark border border-gray-700 text-gray-300 text-xs font-bold uppercase tracking-wider hover:bg-gray-800 hover:text-white hover:border-gray-500 transition-all shadow-lg active:scale-95">
+                    Isolate Nodes
+                </button>
+<div class="w-px h-8 bg-gray-700 mx-2"></div>
+<button class="px-6 py-2 rounded bg-primary text-white text-xs font-bold uppercase tracking-widest hover:bg-primary-dark transition-all shadow-[0_0_15px_rgba(233,28,28,0.4)] active:scale-95 flex items-center gap-2 group border border-red-500">
+<span class="material-icons text-sm group-hover:animate-ping">warning</span>
+                    Simulate Full Breach
+                </button>
+<button class="px-6 py-2 rounded bg-transparent border-2 border-primary text-primary text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-lg active:scale-95">
+                    Zero Trust Lock
+                </button>
+</div>
+</footer>
+</div>
+</body></html>
