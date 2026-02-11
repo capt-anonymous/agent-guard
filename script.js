@@ -1,20 +1,20 @@
 function updateISTTime() {
-  const clock = document.getElementById("ist-clock");
-  if (!clock) return;
+    const clock = document.getElementById("ist-clock");
+    if (!clock) return;
 
-  const now = new Date();
+    const now = new Date();
 
-  const options = {
-    timeZone: "Asia/Kolkata",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  };
+    const options = {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+    };
 
-  const istTime = new Intl.DateTimeFormat("en-IN", options).format(now);
+    const istTime = new Intl.DateTimeFormat("en-IN", options).format(now);
 
-  clock.textContent = `${istTime} IST`;
+    clock.textContent = `${istTime} IST`;
 }
 
 // Run immediately
@@ -24,42 +24,42 @@ updateISTTime();
 setInterval(updateISTTime, 1000);
 
 
-       tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#e91c1c",
-                        "primary-dark": "#b01010",
-                        "background-light": "#f8f6f6",
-                        "background-dark": "#050505", /* Pure Obsidian */
-                        "surface-dark": "#110a0a",
-                        "glass": "rgba(17, 10, 10, 0.7)",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"],
-                        "mono": ["Courier New", "monospace"]
-                    },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
-                    animation: {
-                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                        'radar-sweep': 'spin 4s linear infinite',
-                        'scanline': 'scanline 8s linear infinite',
-                        'glitch': 'glitch 1s linear infinite',
-                    },
-                    keyframes: {
-                        scanline: {
-                            '0%': { backgroundPosition: '0% 0%' },
-                            '100%': { backgroundPosition: '0% 100%' },
-                        },
-                        glitch: {
-                            '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
-                            '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
-                            '62%': { transform: 'translate(0,0) skew(5deg)' },
-                        }
-                    }
-                },
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "primary": "#e91c1c",
+                "primary-dark": "#b01010",
+                "background-light": "#f8f6f6",
+                "background-dark": "#050505", /* Pure Obsidian */
+                "surface-dark": "#110a0a",
+                "glass": "rgba(17, 10, 10, 0.7)",
             },
-        }
-   
+            fontFamily: {
+                "display": ["Space Grotesk", "sans-serif"],
+                "mono": ["Courier New", "monospace"]
+            },
+            borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+            animation: {
+                'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'spin-slow': 'spin 8s linear infinite',
+                'radar-sweep': 'spin 4s linear infinite',
+                'scanline': 'scanline 8s linear infinite',
+                'glitch': 'glitch 1s linear infinite',
+            },
+            keyframes: {
+                scanline: {
+                    '0%': { backgroundPosition: '0% 0%' },
+                    '100%': { backgroundPosition: '0% 100%' },
+                },
+                glitch: {
+                    '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                    '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                    '62%': { transform: 'translate(0,0) skew(5deg)' },
+                }
+            }
+        },
+    },
+}
+
